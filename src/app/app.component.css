@@ -1,0 +1,19 @@
+table{
+  text-align: center;
+  font-weight: bold;
+}
+img,h1{
+  display: inline-block;
+  text-align:center;
+}
+input{
+	text-align:center;
+}
+
+select{
+  width: 250px;
+}
+h4,select{
+  display: inline-block;
+
+}

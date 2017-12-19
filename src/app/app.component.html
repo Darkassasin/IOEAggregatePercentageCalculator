@@ -1,0 +1,96 @@
+
+<img src="../assets/ioe.png" alt="ioe"><h1 align="center">IOE Aggregate Percentage Calculator</h1> <button class="btn btn-success glyphicon glyphicon-refresh" (click)="reset()"><span class=""></span></button>
+<br>
+<h4><strong>Select your faculty:</strong></h4>
+<select [(ngModel)]="faculty" class="form-control" (change)="onChangeFaculty(faculty)">
+  <option value="1">B.C.T</option>
+  <option value="2">B.C.E</option>
+</select>
+<!--<div class="col-md-2"></div>-->
+<table class="table-bordered table-striped table-hover col-md-8">
+    <tr>
+        <td>Semester</td>
+        <td>Total</td>
+        <td>Marks Obtained</td>
+        <td>Percentage(%)</td>
+        <td>Aggregate (%)</td>
+    </tr>
+    <tbody>
+      <tr>
+        <td>First Semester</td>
+        <td>{{total[0]}}</td>
+        <td><input class="form-control" type="number" [(ngModel)]="sem[0]" (keyup)="CalculatePercentageandAggregate()" min="0" max={{total[0]}}></td>
+        <td><label>{{this.percentage[0]| number : '1.2-2'}}</label></td>
+        <td><label>{{this.aggregate[0]| number : '1.2-2'}}</label></td>
+      </tr>
+      <tr>
+        <td>Second Semester</td>
+        <td>{{total[1]}}</td>
+        <td><input class="form-control" type="number" [(ngModel)]="sem[1]" (keyup)="CalculatePercentageandAggregate()" min="0"max={{total[1]}}></td>
+        <td><label>{{this.percentage[1]| number : '1.2-2'}}</label></td>
+        <td><label>{{this.aggregate[1]| number : '1.2-2'}}</label></td>
+      </tr>
+      <tr>
+        <td>Third Semester</td>
+        <td>{{total[2]}}</td>
+        <td><input class="form-control"  type="number" [(ngModel)]="sem[2]" (keyup)="CalculatePercentageandAggregate()" min="0" max={{total[2]}}></td>
+        <td><label>{{this.percentage[2]| number : '1.2-2'}}</label></td>
+        <td><label>{{this.aggregate[2]| number : '1.2-2'}}</label></td>
+      </tr>
+      <tr>
+        <td>Fourth Semester</td>
+        <td>{{total[3]}}</td>
+        <td><input class="form-control"  type="number" [(ngModel)]="sem[3]" (keyup)="CalculatePercentageandAggregate()" min="0" max={{total[3]}}></td>
+        <td><label>{{this.percentage[3]| number : '1.2-2'}}</label></td>
+        <td><label>{{this.aggregate[3]| number : '1.2-2'}}</label></td>
+      </tr>
+      <tr>
+        <td>Fifth Semester</td>
+        <td>{{total[4]}}</td>
+        <td><input class="form-control"  type="number" [(ngModel)]="sem[4]" (keyup)="CalculatePercentageandAggregate()" min="0" max={{total[4]}}></td>
+        <td><label>{{this.percentage[4]| number : '1.2-2'}}</label></td>
+        <td><label>{{this.aggregate[4]| number : '1.2-2'}}</label></td>
+      </tr>
+      <tr>
+        <td>Sixth Semester</td>
+        <td>{{total[5]}}</td>
+        <td><input class="form-control"  type="number" [(ngModel)]="sem[5]" (keyup)="CalculatePercentageandAggregate()" min="0" max={{total[5]}}></td>
+        <td><label>{{this.percentage[5]| number : '1.2-2'}}</label></td>
+        <td><label>{{this.aggregate[5]| number : '1.2-2'}}</label></td>
+      </tr>
+      <tr>
+        <td>Seventh Semester</td>
+        <td>{{total[6]}}</td>
+        <td><input class="form-control"  type="number" [(ngModel)]="sem[6]" (keyup)="CalculatePercentageandAggregate()" min="0" max={{total[6]}}></td>
+        <td><label>{{this.percentage[6]| number : '1.2-2'}}</label></td>
+        <td><label>{{this.aggregate[6]| number : '1.2-2'}}</label></td>
+      </tr>
+      <tr>
+        <td>Eight Semester</td>
+        <td>{{total[7]}}</td>
+        <td><input class="form-control"  type="number" [(ngModel)]="sem[7]" (keyup)="CalculatePercentageandAggregate(); flagOn()" min="0" max={{total[7]}}></td>
+        <td><label>{{this.percentage[7]| number : '1.2-2'}}</label></td>
+        <td><label>{{this.aggregate[7]| number : '1.2-2'}}</label></td>
+      </tr>
+      <tr>
+        <td colspan="4">Total Aggregate %</td>
+        <td>{{aggregateTotal| number : '1.2-2'}}%</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+<br>
+<ng-container *ngIf="flag">
+  <ng-container *ngIf="aggregateTotal>80">
+    <h2>Congratulations You have achieved <strong style="color: green">Distinction</strong> with {{aggregateTotal| number : '1.2-2'}}%</h2>
+  </ng-container>
+  <ng-container *ngIf="aggregateTotal>65 && aggregateTotal<80">
+    <h2>Congratulations You have achieved <strong style="color: green">First Division</strong> with {{aggregateTotal| number : '1.2-2'}}%</h2>
+  </ng-container>
+  <ng-container *ngIf="aggregateTotal>50 && aggregateTotal<65">
+    <h2>Congratulations You have achieved <strong style="color: green">Second Division</strong> with {{aggregateTotal| number : '1.2-2'}}%</h2>
+  </ng-container>
+  <ng-container *ngIf="aggregateTotal>40 && aggregateTotal<50">
+    <h2>Congratulations You have <strong style="color: green">passed</strong> with {{aggregateTotal| number : '1.2-2'}}%</h2>
+  </ng-container>
+</ng-container>
